@@ -15,18 +15,18 @@ LIBS := libs
 EXECUTABLE := main
 
 
-clear:
+clean:
 	@echo "Clearing..."
 	-rm $(BIN)/*
 
-all:
-	@echo "Do everything!!"
-	clear
+compile: $(BIN)/$(EXECUTABLE)
+
+all: clean compile
 	./$(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 	@echo "Compilling..."
-	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
+	$(CXX) $(CXXFLAGS) -I $(INCLUDE) -L $(LIBS) $^ -o $@ 
 # $^ : target name \
     $@: all prereqs \
     more on: https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables
