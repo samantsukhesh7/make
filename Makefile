@@ -27,8 +27,8 @@ all: clean compile
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 	@echo "Compilling..."
 	$(CXX) $(CXXFLAGS) -I $(INCLUDE) -L $(LIBS) $^ -o $@ 
-# $^ : target name \
-    $@: all prereqs \
+# $^ : all prereqs \
+    $@: target name \
     more on: https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables
 
 
